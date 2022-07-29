@@ -1,0 +1,7 @@
+body {
+    background-image: url("kvapple.png");
+    background-repeat: no-repeat;
+    background-position: 95% 4em;
+    background-attachment: fixed;
+    background-size: 10em 10em;
+}

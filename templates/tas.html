@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.active.css') }}">
+{% endblock %}
+
+{% block title %}
+    tas
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="page-top">
+            <h1>tas hub</h1>
+            <p>a collection of transaction advisory services projects</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <table>
+                <tr>
+                    <th>project</th>
+                    <th>description</th>
+                    <th>github repo</th>
+                </tr>
+                <tr>
+                    <td><a class="ac-a" href="">/fxhelper</a></td>
+                    <td>a thing that does x</td>
+                    <td><a class="ac-link" href="">/fxhelper</a></td>
+                </tr>
+                <tr>
+                    <td><a class="ac-a" href="">/qbohelper</a></td>
+                    <td>a thing that does x</td>
+                    <td><a class="ac-link" href="">/qbohelper</a></td>
+                </tr>
+                <tr>
+                    <td><a class="ac-a" href="">/cash2accrual</a></td>
+                    <td>a thing that does x</td>
+                    <td><a class="ac-link" href="">/cash2accrual</a></td>
+                </tr>
+                <tr>
+                    <td><a class="ac-a" href="">/template</a></td>
+                    <td>a thing that does x</td>
+                    <td><a class="ac-link" href="">/template</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="spacer-lg"></div>
+    </div>
+    <div class="container">
+        <table class="t-footer">
+            <tr>
+                <td>=^..^=</td>
+                <td>=^..^=</td>
+                <td>=^..^=</td>
+                <td>=^..^=</td>
+                <td>=^..^=</td>
+                <td>=^..^=</td>
+                <td>=^..^=</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

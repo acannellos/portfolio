@@ -1,0 +1,112 @@
+body {
+    font-size: 100%;
+    font-family: 'Segoe UI', 'Noto Emoji', sans-serif;
+    color: #1c1c1c;
+    text-align: left;
+}
+
+h1 {
+    font-size: 1.75em; /* 28px/16=1.75em */
+    font-weight: 700;
+    padding-bottom: .25em;
+}
+
+h2 {
+    font-size: 1.25em; /* 20px/16=1.25em */
+    font-weight: 600;
+    padding-bottom: .25em;
+}
+
+p {
+    font-size: 0.875em; /* 14px/16=0.875em */
+}
+
+.navbar {
+    border-bottom: 2px solid #000;
+    background-color: #fff;
+}
+
+.nav-link {
+    color: #000;
+    font-weight: 500;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(28,28,28)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.index-top {
+    margin-top: 10em;
+    max-width: 37.5em;
+}
+
+.page-top {
+    margin-top: 2em;
+    max-width: 56.25em;
+}
+
+.spacer-lg {
+    margin-top: 50em;
+}
+
+.spacer-sm {
+    margin-top: 8em;
+}
+
+.spacer-md {
+    margin-top: 20em;
+}
+
+table {
+    width: 100%;
+    border: 1px solid;
+    font-size: 0.875em;
+}
+
+a {
+    text-decoration: none;
+}
+
+.ac-a {
+    color: #000;
+    text-decoration: none;
+}
+
+.ac-link {
+    color: tomato;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+}
+
+.ac-imdb {
+    color: #c49102;
+    text-decoration: none;
+}
+
+.ac-email {
+    border-bottom: 1px solid #000;
+    color: #000;
+    text-decoration: none;
+}
+
+.ac-footer {
+    opacity: .6;
+}
+
+.t-footer {
+    border: 0px;
+    opacity: .6;
+    font-family: 'Courier New', monospace;
+}
+
+.dropdown-menu li{
+    position: relative;
+}
+
+.dropdown-menu .submenu-left{
+    right:100%; top:-7px; left:auto;
+}
+
+.dropdown-menu > li:hover > .submenu{
+    display: block;
+}
