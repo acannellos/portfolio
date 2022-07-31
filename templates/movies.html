@@ -32,12 +32,7 @@
                 <th>remove</th>
             </tr>
             <tr>
-                <td>movie a</td>
-                <td>1990</td>
-                <td>bob</td>
-                <td>90</td>
-                <td>comedy</td>
-                <td>9.0</td>
+                <td>for loop</td>
             </tr>
         </table>
         <br>
@@ -56,20 +51,9 @@
                 <input type="text" name="title" placeholder="title">
                 <input type="number" name="year" placeholder="year" min="{{ ymin }}" max="{{ ymax }}" size="4"><br>
             </div>
-            <div class="mb-2">
+            <div class="mb-3">
                 <input type="text" name="director" placeholder="director">
                 <input type="number" name="runtime" placeholder="mins." min="0" max="{{ rmax }}" size="3" step="5">
-            </div>
-            <div class="mb-3">
-                <select name="genre">
-                    <option disabled selected value>genre</option>
-                    <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
-                    <option value="hamster">Hamster</option>
-                    <option value="parrot">Parrot</option>
-                    <option value="spider">Spider</option>
-                    <option value="goldfish">Goldfish</option>
-                </select>
             </div>
             <button type="submit" class="btn btn-outline-dark btn-sm">add</button>
             <button type="reset" name="clear" class="btn btn-outline-dark btn-sm">clear</button>

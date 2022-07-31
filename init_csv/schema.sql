@@ -2,7 +2,6 @@ DROP TABLE IF EXISTS titles;
 DROP TABLE IF EXISTS ratings;
 DROP TABLE IF EXISTS crew;
 DROP TABLE IF EXISTS names;
-DROP TABLE IF EXISTS movielist;
 
 CREATE TABLE titles (
     titleId TEXT NOT NULL PRIMARY KEY,
@@ -38,14 +37,4 @@ CREATE TABLE names (
     deathYear INTEGER,
     primaryProfession TEXT,
     knownForTitles TEXT
-);
-
-CREATE TABLE movielist (
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    title TEXT NOT NULL,
-    year INTEGER NOT NULL,
-    director TEXT NOT NULL,
-    runtime INTEGER NOT NULL,
-    genres TEXT NOT NULL,
-    added DATETIME DEFAULT CURRENT_TIMESTAMP
 );
