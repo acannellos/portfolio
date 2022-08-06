@@ -1,9 +1,11 @@
 import csv
 import sqlite3 as sql
 
+# initialize .db from .csv
+
 def main():
 
-    con = sql.connect('db.db')
+    con = sql.connect('../db.db')
     cur = con.cursor()
 
     insert_imdb = 'INSERT INTO imdb VALUES(?, ?, ?, ?, ?, ?, ?, ?)'

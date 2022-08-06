@@ -93,12 +93,6 @@ a {
     opacity: .6;
 }
 
-.t-footer {
-    border: 0px;
-    opacity: .6;
-    font-family: 'Courier New', monospace;
-}
-
 .dropdown-menu li{
     position: relative;
 }

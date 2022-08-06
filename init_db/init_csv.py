@@ -1,19 +1,23 @@
 import csv
 import sqlite3 as sql
 
+# write a .csv of top movies
+
 '''
 https://www.imdb.com/interfaces/
-download current tsv files from imdb.com, and save within /data
+download current zip files from imdb.com
 
-/data/title.basics.tsv
-/data/title.ratings.tsv
-/data/title.crew.tsv
-/data/name.basics.tsv
+extract and name files, respectively
+save within /data directory
 '''
+
+titles = './data/title.basics.tsv'
+ratings = './data/title.ratings.tsv'
+crew = './data/title.crew.tsv'
+names = './data/name.basics.tsv'
 
 def main():
 
-    # connect to helper db
     con = sql.connect('./data/helper.db')
     cur = con.cursor()
 
@@ -22,19 +26,15 @@ def main():
     insert_crew = 'INSERT INTO crew VALUES(?, ?, ?)'
     insert_names = 'INSERT INTO names VALUES(?, ?, ?, ?, ?, ?)'
 
-    # create schema
     run_script('schema.sql', con)
 
-    # load tsv to helper db
-    load_tsv('./data/title.basics.tsv', cur, insert_titles)
-    load_tsv('./data/title.ratings.tsv', cur, insert_ratings)
-    load_tsv('./data/title.crew.tsv', cur, insert_crew)
-    load_tsv('./data/name.basics.tsv', cur, insert_names)
+    load_tsv(titles, cur, insert_titles)
+    load_tsv(ratings, cur, insert_ratings)
+    load_tsv(crew, cur, insert_crew)
+    load_tsv(names, cur, insert_names)
 
-    # transform helper db for popular movies
     run_script('transform.sql', con)
 
-    # extract SELECT to csv
     imdb = con.execute(
         '''
         SELECT titleID, primaryTitle, startYear, primaryName, runtimeMinutes, genres, averageRating, numVotes
@@ -46,7 +46,7 @@ def main():
         '''
         ).fetchall()
 
-    with open('../imdb.csv', 'w', newline='') as f:
+    with open('imdb.csv', 'w', newline='') as f:
         writer = csv.writer(f)
         for row in imdb:
             writer.writerow(row)
