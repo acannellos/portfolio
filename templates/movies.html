@@ -46,14 +46,18 @@
 
     <div class="container">
         <h2>: search movies :</h2>
-        <form action="" method="post">
+        <form action="" method="post" name="form">
+            <div class="mb-2">
+                <label for="runtime">max runtime :</label>
+                <input type="number" name="runtime" placeholder="mins." min="{{ rmin }}" max="{{ rmax }}" size="3" step="10">
+            </div>
             <div class="mb-2">
                 <input type="text" name="title" placeholder="title">
                 <input type="number" name="year" placeholder="year" min="{{ ymin }}" max="{{ ymax }}" size="4"><br>
             </div>
             <div class="mb-3">
                 <input type="text" name="director" placeholder="director">
-                <input type="number" name="runtime" placeholder="mins." min="0" max="{{ rmax }}" size="3" step="5">
+                <input type="text" name="genre" placeholder="genre">
             </div>
             <button type="submit" class="btn btn-outline-dark btn-sm">add to watchlist</button>
             <button type="reset" name="clear" class="btn btn-outline-dark btn-sm">clear</button>
@@ -62,7 +66,6 @@
         <table name='query'></table>
     </div>
 
-    <script src="{{ url_for('static',filename='script.init.js') }}"></script>
     <script src="{{ url_for('static',filename='script.js') }}"></script>
 
     <div class="container">

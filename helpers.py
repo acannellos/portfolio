@@ -12,4 +12,5 @@ con.close()
 
 ymin = 1915
 ymax = 2022
+rmin = 60
 rmax = 500

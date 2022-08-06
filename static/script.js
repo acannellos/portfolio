@@ -1,8 +1,18 @@
+let title = document.querySelector('[name="title"]');
+let year = document.querySelector('[name="year"]');
+let director = document.querySelector('[name="director"]');
+let runtime = document.querySelector('[name="runtime"]');
+let genre = document.querySelector('[name="genre"]');
+let clear = document.querySelector('[name="clear"]');
+
 title.addEventListener('keyup', helper, false);
 year.addEventListener('keyup', helper, false);
 director.addEventListener('keyup', helper, false);
+runtime.addEventListener('keyup', helper, false);
+genre.addEventListener('keyup', helper, false);
 
 year.addEventListener('input', helper, false);
+runtime.addEventListener('input', helper, false);
 
 clear.addEventListener('click', function(event) {
     document.querySelector('[name="query"]').innerHTML = '';
@@ -20,32 +30,12 @@ function helper(event) {
         </tr>`;
 
     for (movie of movies) {
-        if (noNulls(arrTYD)) {
-            if (searchTitles(movie) && searchYear(movie) && searchDir(movie)) {
+        if (isEmpty(runtime.value)) {
+            if (searchTitles(movie) && searchYear(movie) && searchDir(movie) && searchGen(movie)) {
                 html += build(movie);
             }
-        } else if (noNulls(arrTY)) {
-            if (searchTitles(movie) && searchYear(movie)) {
-                html += build(movie);
-            }
-        } else if (noNulls(arrTD)) {
-            if (searchTitles(movie) && searchDir(movie)) {
-                html += build(movie);
-            }
-        } else if (noNulls(arrYD)) {
-            if (searchYear(movie) && searchDir(movie)) {
-                html += build(movie);
-            }
-        } else if (noNulls(arrT)) {
-            if (searchTitles(movie)) {
-                html += build(movie);
-            }
-        } else if (noNulls(arrY)) {
-            if (searchYear(movie)) {
-                html += build(movie);
-            }
-        } else if (noNulls(arrD)) {
-            if (searchDir(movie)) {
+        } else {
+            if (searchTitles(movie) && searchYear(movie) && searchDir(movie) && searchRun(movie) && searchGen(movie)) {
                 html += build(movie);
             }
         }
@@ -53,8 +43,8 @@ function helper(event) {
     document.querySelector('[name="query"]').innerHTML = html
 };
 
-function noNulls(arr) {
-    return !arr.includes(null)
+function isEmpty(v) {
+    return Boolean(v == null || v == "")
 }
 
 function searchTitles(m) {
@@ -67,6 +57,14 @@ function searchYear(m) {
 
 function searchDir(m) {
     return m[2].toLowerCase().includes(director.value.toLowerCase())
+};
+
+function searchRun(m) {
+    return (m[3] <= runtime.value)
+};
+
+function searchGen(m) {
+    return m[4].toLowerCase().includes(genre.value.toLowerCase())
 };
 
 function build(m) {
