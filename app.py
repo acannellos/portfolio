@@ -21,10 +21,10 @@ def tas():
 def movies():
 
     con = sql.connect('db.db')
-    
+
     movielist = con.execute(
         '''
-        SELECT id, title, year, director, runtime, genres, rating
+        SELECT *
         FROM imdb
         WHERE id IN
         (SELECT tconst FROM movielist)
@@ -34,21 +34,29 @@ def movies():
 
     if request.method == 'POST':
 
-        title = ['%' + request.form.get('title') + '%']
-        year = ['%' + request.form.get('year') + '%']
-        director = ['%' + request.form.get('director') + '%']
-        runtime = ['%' + request.form.get('runtime') + '%']
-        genre = ['%' + request.form.get('genre') + '%']
+        title = ('%' + request.form.get('title') + '%')
+        year = ('%' + request.form.get('year') + '%')
+        director = ('%' + request.form.get('director') + '%')
+        runtime = request.form.get('runtime')
+        genre = ('%' + request.form.get('genre') + '%')
 
-        '''if not runtime:
+        addition = con.execute(
+            '''
+            SELECT id
+            FROM imdb
+            WHERE title LIKE ?
+            AND year LIKE ?
+            AND director LIKE ?
+            AND genres LIKE ?
+            AND runtime < ?
+            ''',
+            (title, year, director, genre, runtime)).fetchall()
 
-            # do something
-            print('x')'''
-
-        addition = con.execute('SELECT id FROM imdb WHERE title LIKE ?', title).fetchone()
+        if len(addition) != 1:
+            return redirect(url_for('movies'))
 
         with con:
-            con.execute('INSERT INTO movielist (tconst) VALUES (?)', addition)
+            con.execute('INSERT INTO movielist (tconst) VALUES (?)', addition[0])
         
         con.close()
         return redirect(url_for('movies'))
