@@ -18,19 +18,19 @@
             <p>a searchable list of movies to watch, inspired by <i><a class="ac-a" href="https://www.youtube.com/watch?v=-UKbwz6s6VY">SNL</a></i></p>
         </div>
         <br>
-        <form action="/remove" method="post">
-            <table>
-                <tr>
-                    <th style="display:none;">id</th>
-                    <th>title</th>
-                    <th>year</th>
-                    <th>director</th>
-                    <th>runtime</th>
-                    <th>genres</th>
-                    <th>rating</th>
-                    <th>watched</th>
-                </tr>
-                {% for movie in movielist %}
+        <table>
+            <tr>
+                <th style="display:none;">id</th>
+                <th>title</th>
+                <th>year</th>
+                <th>director</th>
+                <th>runtime</th>
+                <th>genres</th>
+                <th>rating</th>
+                <th>watched</th>
+            </tr>
+            {% for movie in movielist %}
+                <form action="/remove" method="post">
                     <tr>
                         <td style="display:none;"><input type="hidden" name="id" value="{{ movie[0] }}">{{ movie[0] }}</td>
                         <td>{{ movie[1] }}</td>
@@ -43,9 +43,9 @@
                             <button type="submit" class="btn btn-outline-dark btn-sm">remove</button>
                         </td>
                     </tr>
-                {% endfor %}
-            </table>
-        </form>
+                </form>
+            {% endfor %}
+        </table>
         <br>
         <div>
             <p class="ac-footer"><b>🍿</b><i>provided by <a class="ac-imdb" href="https://www.imdb.com/interfaces/">IMDb</a></i></p>
@@ -56,7 +56,7 @@
     </div>
 
     <div class="container">
-        <h2>: search movies :</h2>
+        <h2>: search movie :</h2>
         <form action="/movies" method="post" name="form">
             <div class="mb-2">
                 <label for="runtime">max runtime :</label>
