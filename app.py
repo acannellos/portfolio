@@ -55,6 +55,17 @@ def movies():
         if len(addition) != 1:
             return redirect(url_for('movies'))
 
+        dupes = con.execute(
+            '''
+            SELECT *
+            FROM movielist
+            WHERE tconst = ?
+            ''',
+            addition[0]).fetchall()
+
+        if len(dupes) > 0:
+            return redirect(url_for('movies'))      
+
         with con:
             con.execute('INSERT INTO movielist (tconst) VALUES (?)', addition[0])
         
