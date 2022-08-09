@@ -75,6 +75,6 @@ flask run
 ***
 
 <!-- ABOUT THE PROJECT -->
-## thank you :)
+## thank you
 
-thank you to david & team it was a great experience!
+thank you to david & team :) it was a great experience!
