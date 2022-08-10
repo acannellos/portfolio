@@ -1,5 +1,5 @@
 # portfolio
-#### Video Demo: <URL HERE>
+#### Video Demo: <https://youtu.be/hc4p3Naf_MM>
 
 <details>
 <summary>Table of Contents</summary>
@@ -44,7 +44,7 @@ The app also includes a few ideas 'under construction', which may be projects I'
 
 ### get IMDb data
 
-To update the app's IMDb database to a more current version, download and extract the following .tsv files from [IMDb Datasets](https://www.imdb.com/interfaces/). Rename and save the files within the /data directory
+To update the app's IMDb database to a more current version, download and extract the following .tsv files from [IMDb](https://www.imdb.com/interfaces/). Rename and save the files within the /data directory
 
 - /data/title.basics.tsv
 - /data/title.ratings.tsv
